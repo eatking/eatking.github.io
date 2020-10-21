@@ -8,16 +8,33 @@
 <style type="text/css">
 	*,iframe{width: 100%; height: 100%; padding: 0; margin: 0; overflow: hidden;}
 	.pos{position: fixed; right: 0; bottom: -260px; width: 250px; height: 250px;  background-color: rgba(255,255,255,0.2);}
+	.pos a{position: absolute; left:0; top:0; display:block;}
+	.myad-wrap{
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.8);
+    }
+    .myad{
+	    position: fixed; left: 50%; margin-left: -400px; top: 100px; width: 800px; height: 450px;  background: rgba(255,255,255,0.2) url(https://img.caiqianhua.com/ad/tb800x450.jpg) no-repeat center center;
+    }
+    .myad-close{
+	    position: fixed; left: 50%; margin-left: 410px; top: 100px; width: 60px; height: 30px; line-height: 30px; font-size: 20px; color: #fff;
+    }
+	.myad a{position: absolute; left:0; top:0; display:block;}
 </style>
 </head>
 <body>
 
 
 	<iframe src="http://fm.douban.com/" frameborder="0" style="position: fixed; left:0; top:0;"></iframe>
-
-	<div class="pos"></div>
-
-
+	
+	    <div class="myad-wrap">
+		<div class="myad"><a href="https://s.click.taobao.com/d2vBFvu" target="_blank"></a></div>
+		<div class="myad-close">关闭</div>
+	    </div>
 
 	<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script>
@@ -25,10 +42,11 @@
 			var height = $(document).height();
 			var width  = $(document).width();
 			$('iframe').css({'width':width,'height':height});
-			function fadeTop(){
-					$(".pos").animate({"bottom":"0px"},1000);
-			}
-			setTimeout(fadeTop,5000)
+			// 关闭广告
+			$('.myad-close').on("click",function(){
+				$(".myad-wrap").fadeOut()
+		    	})
+
 		})
 		// baidu tongji
 		var _hmt = _hmt || [];
